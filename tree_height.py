@@ -2,8 +2,7 @@ import os
 
 # Define a function to read input from the keyboard or a file
 def read_input():
-    # Ask the user whether they want to input from the keyboard or a file
-    source = input("Enter 'I' to input from keyboard or 'F' to input from a file: ")
+    source = input()
     
     if source.upper() == 'F':
         # Read input from the keyboard
