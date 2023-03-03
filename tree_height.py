@@ -9,7 +9,9 @@ try:
 except ValueError:
     n = int(input())
 try:
-    num = input()
+    num=""
+    for x in range (0, n):
+        num = num+input()+" "
     parents = list(map(int, num.split()))
     root=0
     tree = [[] for _ in range(n)]
@@ -29,4 +31,4 @@ try:
     height = max(depths)
     print(height+1)
 except EOFError:
-    print("e "+height+1)
+    print("e")
