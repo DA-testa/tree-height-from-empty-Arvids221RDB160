@@ -36,10 +36,10 @@ try:
 
 except EOFError:
     parents = list(map(int, num.split()))
-    root=0
+    root=100000
     tree = [[] for _ in range(n)]
     for child, parent in enumerate(parents):
-        if parent == -1:
+        if parent < root:
             root = child
         else:
             tree[parent].append(child)
