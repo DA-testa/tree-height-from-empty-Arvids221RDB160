@@ -3,15 +3,18 @@
     #n = int(input())
 #else:
 
-n = input()
-try:
-    n=int(n)
-except ValueError:
-    n = int(input())
+
 try:
     num=""
-    for x in range (0, n):
-        num = num+input()+" "
+    n = input()
+    try:
+        n=int(n)
+        for x in range (0, n):
+            num = num+input()+" "
+    except ValueError:
+        n = int(input())
+        num = input()
+        
     parents = list(map(int, num.split()))
     root=0
     tree = [[] for _ in range(n)]
