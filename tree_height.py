@@ -39,7 +39,7 @@ except EOFError:
     root=0
     tree = [[] for _ in range(n)]
     for child, parent in enumerate(parents):
-        if parent > root:
+        if child > root:
             root = child
         else:
             tree[parent].append(child)
