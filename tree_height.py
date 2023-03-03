@@ -1,33 +1,20 @@
-# python3
+n = int(input())
+parents = list(map(int, input().split()))
 
-import sys
-import threading
-import numpy
+tree = [[] for _ in range(n)]
+for child, parent in enumerate(parents):
+    if parent == -1:
+        root = child
+    else:
+        tree[parent].append(child)
 
+stack = [(root, 0)]  # (node, depth)
+depths = [0] * n
+while stack:
+    node, depth = stack.pop()
+    depths[node] = depth
+    for child in tree[node]:
+        stack.append((child, depth+1))
 
-def compute_height(n, parents):
-    # Write this function
-    max_height = 0
-    # Your code here
-    return max_height
-
-
-def main():
-    # implement input form keyboard and from files
-    
-    # let user input file name to use, don't allow file names with letter a
-    # account for github input inprecision
-    
-    # input number of elements
-    # input values in one variable, separate with space, split these values in an array
-    # call the function and output it's result
-    pass
-
-# In Python, the default limit on recursion depth is rather low,
-# so raise it here for this problem. Note that to take advantage
-# of bigger stack, we have to launch the computation in a new thread.
-sys.setrecursionlimit(10**7)  # max depth of recursion
-threading.stack_size(2**27)   # new thread will get stack of such size
-threading.Thread(target=main).start()
-main()
-# print(numpy.array([1,2,3]))
+height = max(depths)
+print(height+1)
