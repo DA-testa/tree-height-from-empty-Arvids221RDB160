@@ -14,7 +14,7 @@ def read_input():
         #parents = list(map(int, input().strip().split()))
         a=input()
         print(a)
-        return None
+        exit()
     else:
         n = int(input().strip())
         parents = list(map(int, input().strip().split()))
