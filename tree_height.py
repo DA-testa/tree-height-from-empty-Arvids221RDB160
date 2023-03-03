@@ -1,7 +1,10 @@
-text = input()
-if text == "I":
+#text = input()
+#if text == "I":
+    #n = int(input())
+#else:
+try:
     n = int(input())
-else:
+except: 
     n = int(input())
 parents = list(map(int, input().split()))
 
