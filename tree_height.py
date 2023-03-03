@@ -14,7 +14,7 @@ try:
     except ValueError:
         n = int(input())
         num = input()
-        
+
     parents = list(map(int, num.split()))
     root=0
     tree = [[] for _ in range(n)]
@@ -33,5 +33,24 @@ try:
             stack.append((child, depth+1))
     height = max(depths)
     print(height+1)
+
 except EOFError:
-    print("e")
+    parents = list(map(int, num.split()))
+    root=0
+    tree = [[] for _ in range(n)]
+    for child, parent in enumerate(parents):
+        if parent == -1:
+            root = child
+        else:
+            tree[parent].append(child)
+
+    stack = [(root, 0)]  # (node, depth)
+    depths = [0] * n
+    while stack:
+        node, depth = stack.pop()
+        depths[node] = depth
+        for child in tree[node]:
+            stack.append((child, depth+1))
+    height = max(depths)
+    print(height+1)
+    
