@@ -15,9 +15,9 @@ def read_input():
         a=input()
         print(a)
         exit()
-    else:
-        n = int(input().strip())
-        parents = list(map(int, input().strip().split()))
+    //else:
+       // n = int(input().strip())
+        //parents = list(map(int, input().strip().split()))
     
     # Check that the input is valid
     if len(parents) != n:
