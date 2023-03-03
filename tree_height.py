@@ -24,9 +24,8 @@ def read_input():
             print("File not found. Please check the file name and try again.")
             return None
     else:
-        # Invalid input
-        print("Invalid input. Please enter 'K' or 'F' to choose input source.")
-        return None
+        n = int(input().strip())
+        parents = list(map(int, input().strip().split()))
     
     # Check that the input is valid
     if len(parents) != n:
