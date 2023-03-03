@@ -10,8 +10,10 @@ def read_input():
         n = int(input().strip())
         parents = list(map(int, input().strip().split()))
     elif source.upper() == 'I':
-        n = int(input().strip())
-        parents = list(map(int, input().strip().split()))
+        #n = int(input().strip())
+        #parents = list(map(int, input().strip().split()))
+        a=input()
+        print(a)
     else:
         n = int(input().strip())
         parents = list(map(int, input().strip().split()))
@@ -51,7 +53,4 @@ if input_data is not None:
     n, parents = input_data
     tree_height = compute_tree_height(n, parents)
     print(tree_height+1)
-    for x in range(0, 30):
-        a = input()
-        print (a)
     
