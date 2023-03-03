@@ -5,29 +5,14 @@ def read_input():
     # Ask the user whether they want to input from the keyboard or a file
     source = input("Enter 'I' to input from keyboard or 'F' to input from a file: ")
     
-    if source.upper() == 'I':
+    if source.upper() == 'F':
         # Read input from the keyboard
         n = int(input().strip())
         parents = list(map(int, input().strip().split()))
-    elif source.upper() == 'F':
-        # Read input from a file
-        filename = input("Enter the file name (without the .txt extension): ")
-        # Check that the file name doesn't contain the letter 'a'
-        if 'a' in filename.lower():
-            print("File name contains the letter 'a'. Please choose a different name.")
-            return None
-        try:
-            with open(os.path.join('folder', f"{filename}.txt"), 'r') as f:
-                n = int(f.readline().strip())
-                parents = list(map(int, f.readline().strip().split()))
-        except FileNotFoundError:
-            print("File not found. Please check the file name and try again.")
-            return None
-    else:
-        # Invalid input
-        print("Invalid input. Please enter 'K' or 'F' to choose input source.")
-        return None
-    
+    elif source.upper() == 'I':
+        n = int(input().strip())
+        parents = list(map(int, input().strip().split()))
+        
     # Check that the input is valid
     if len(parents) != n:
         print("Invalid input. Number of parent nodes does not match the number of nodes.")
