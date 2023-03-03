@@ -11,13 +11,13 @@ def read_input():
         parents = list(map(int, input().strip().split()))
     elif source.upper() == 'I':
         #n = int(input().strip())
-        #parents = list(map(int, input().strip().split()))
-        a=input()
-        print(a)
-        exit()
-    #else:
-       # n = int(input().strip())
-        #parents = list(map(int, input().strip().split()))
+        parents = list(map(int, input().strip().split()))
+        #a=input()
+        #print(a)
+        #exit()
+    else:
+        n = int(input().strip())
+        parents = list(map(int, input().strip().split()))
     
     # Check that the input is valid
     if len(parents) != n:
