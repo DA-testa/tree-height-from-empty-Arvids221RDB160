@@ -11,6 +11,7 @@ def read_input():
         parents = list(map(int, input().strip().split()))
     elif source.upper() == 'I':
         n = int(input().strip())
+        n = int(input().strip())
         parents = list(map(int, input().strip().split()))
     else:
         n = int(input().strip())
