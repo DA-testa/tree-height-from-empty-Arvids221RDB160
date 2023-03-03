@@ -39,10 +39,11 @@ except EOFError:
     root=0
     tree = [[] for _ in range(n)]
     for child, parent in enumerate(parents):
-        if child > root:
+        if parent == 1:
             root = child
         else:
             tree[parent].append(child)
+            root=root+1
 
     stack = [(root, 0)]  # (node, depth)
     depths = [0] * n
