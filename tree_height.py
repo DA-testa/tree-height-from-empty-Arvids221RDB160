@@ -1,4 +1,8 @@
-n = int(input())
+text = input()
+if text == "I":
+    n = int(input())
+else:
+    n = int(input())
 parents = list(map(int, input().split()))
 
 tree = [[] for _ in range(n)]
