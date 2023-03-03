@@ -2,10 +2,13 @@
 #if text == "I":
     #n = int(input())
 #else:
+
+n = input()
 try:
+    n=int(n)
+except ValueError:
     n = int(input())
-except: 
-    n = int(input())
+
 parents = list(map(int, input().split()))
 
 tree = [[] for _ in range(n)]
