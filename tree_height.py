@@ -11,7 +11,6 @@ def compute_height(n, parents):
         else:
             child1[parent].append(i)
 
-    # koka augstums 
     def compute_depth(node):
         if not child1[node]:
             return 1
@@ -22,7 +21,6 @@ def compute_height(n, parents):
         return max_depth + 1
 
     return compute_depth(root)
-
 
 def main():
     input_type = input("Input type")
@@ -37,7 +35,7 @@ def main():
             temp = int(file.readline())
             temp2 = list(map(int, file.readline().split()))
             height = compute_height(temp, temp2)
-            print(height)
+            print(height+1)
     else:
         print("Invalid")
         exit()
