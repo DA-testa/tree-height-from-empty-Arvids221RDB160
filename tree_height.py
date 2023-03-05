@@ -1,57 +1,44 @@
-import os
+import sys
+import threading
 
-# Define a function to read input from the keyboard or a file
-def read_input():
-    # Ask the user whether they want to input from the keyboard or a file
-    source = input()
-    
-    if source.upper() == 'F':
-        # Read input from the keyboard
-        n = int(input().strip())
-        parents = list(map(int, input().strip().split()))
-    elif source.upper() == 'I':
-        #n = int(input().strip())
-        parents = list(map(int, input().strip().split()))
-        #a=input()
-        #print(a)
-        #exit()
-    else:
-        n = int(input().strip())
-        parents = list(map(int, input().strip().split()))
-    
-    # Check that the input is valid
-    if len(parents) != n:
-        print("Invalid input. Number of parent nodes does not match the number of nodes.")
-        return None
-    
-    return n, parents
-
-
-# Define a function to compute the height of the tree
-def compute_tree_height(n, parents):
-    # Create a dictionary to store the children of each node
-    children = {i: [] for i in range(n)}
+def compute_height(n, parents):
+    # izveido koku
+    child1 = [[] for _ in range(n)]
     for i in range(n):
-        if parents[i] != -1:
-            children[parents[i]].append(i)
-    
-    # Define a recursive function to compute the height of a node
-    def compute_height(node):
-        if not children[node]:
-            # Leaf node
-            return 0
+        parent = parents[i]
+        if parent == -1:
+            root = i
         else:
-            # Compute the height of each child and take the maximum
-            return 1 + max(compute_height(child) for child in children[node])
-    
-    # Compute the height of the root node
-    return compute_height(parents.index(-1))
+            child1[parent].append(i)
+
+    # koka augstums 
+    def compute_depth(node):
+        if not child1[node]:
+            return 1
+        max_depth = 0
+        for child2 in child1[node]:
+            depth = compute_depth(child2)
+            max_depth = max(max_depth, depth)
+        return max_depth + 1
+
+    return compute_depth(root)
 
 
-# Main program
-input_data = read_input()
-if input_data is not None:
-    n, parents = input_data
-    tree_height = compute_tree_height(n, parents)
-    print(tree_height+1)
+def main():
+    input_type = input("Input type")
+    if 'I' in input_type:
+        temp = int(input())
+        temp2 = list(map(int, input().split()))
+        height = compute_height(temp, temp2)
+        print(height)
+    elif 'F' in input_type:
+        filename = input()
+        with open("test/" + filename, 'r') as file:
+            temp = int(file.readline())
+            temp2 = list(map(int, file.readline().split()))
+            height = compute_height(temp, temp2)
+            print(height)
+    else:
+        print("Invalid")
+        exit()
     
