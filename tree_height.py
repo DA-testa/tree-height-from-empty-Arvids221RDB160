@@ -1,3 +1,4 @@
+#Arvīds Toms Spūlis 221RDB160
 import sys
 import threading
 
