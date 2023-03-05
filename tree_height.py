@@ -2,7 +2,7 @@ import sys
 import threading
 
 def compute_height(n, parents):
-    # izveido koku
+
     child1 = [[] for _ in range(n)]
     for i in range(n):
         parent = parents[i]
@@ -35,8 +35,12 @@ def main():
             temp = int(file.readline())
             temp2 = list(map(int, file.readline().split()))
             height = compute_height(temp, temp2)
-            print(height+1)
+            print(height)
     else:
         print("Invalid")
         exit()
+
+sys.setrecursionlimit(10**7)  
+threading.stack_size(2**27)   
+threading.Thread(target=main).start()
     
